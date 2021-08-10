@@ -5,15 +5,9 @@
   object-fit: cover;
 }
 
-.fix-start {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-}
-.absolute-start {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
+.page-icon {
+  color: $primary;
+  &:hover {
+    color: $white;
+  }
 }
