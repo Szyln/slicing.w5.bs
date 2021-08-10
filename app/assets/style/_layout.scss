@@ -1,0 +1,33 @@
+.nav-width {
+  width: 296px;
+}
+
+.user-icon {
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+}
+
+.nav-left-border .nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: $gray-900;
+
+  &::before {
+    position: absolute;
+    content: "";
+    left: -16px;
+    height: 32px;
+  }
+  &:hover {
+    color: $primary;
+    &::before {
+      border-left: 4px solid $primary;
+    }
+  }
+}
+
+.logo-link {
+  display: flex;
+}

@@ -1,0 +1,1853 @@
+---
+title: Admin
+layout: ./app/layout.ejs
+engine: ejs
+current: Admin
+---
+<!--cheetsheet: https://bootstrap5.hexschool.com/docs/5.0/examples/cheatsheet/#sizing -->
+<table class="table mb-x16">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Verified</th>
+      <th scope="col"></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">#1</th>
+      <td>Emir Wicks</td>
+      <td>emir.wicks@mail.com</td>
+      <td>Yes</td>
+      <td class="d-flex justify-content-end">
+        <!-- 查看詳細資料 -->
+        <button type="button " class="btn btn-link text-dark d-flex p-1 rounded-circle me-3" data-bs-toggle="modal"
+          data-bs-target="#adminInfo">
+          <span class="material-icons">
+            remove_red_eye
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="adminInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body d-flex">
+                <!-- 圖 -->
+                <div class="modal-image ratio ratio-1x1 me-4">
+                  <img class="rounded modal-image object-fit-cover"
+                    src="https://images.unsplash.com/photo-1522069394066-326005dc26b2?ixlib=rb-1.2.1&ixid=eyjhchbfawqiojeymdd9&auto=format&fit=crop&w=1350&q=80"
+                    alt="">
+                </div>
+                <!-- 字 -->
+                <div>
+                  <!-- 字 head -->
+                  <div class="d-flex justify-content-between align-items-stretch modal-text">
+                    <h3 class="fs-5 mb-2">#1</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <!-- 字 body -->
+                  <ul class="list-unstyled">
+                    <li>
+                      <h3 class="fs-5">Admin</h3>
+                    </li>
+                    <li>
+                      <h2 class="fs-4 fw-bold mb-2">Emir Wicks</h2>
+                    </li>
+                    <li class="text-lowercase text-secondary fs-small mb-x5">
+                      emir.wicks@mail.com
+                    </li>
+                  </ul>
+                  <!-- 字 footer -->
+                  <div class="d-flex justify-content-between">
+                    <span class="badge bg-light text-dark fw-normal">
+                      Verified
+                    </span>
+                    <button class="btn btn-link rounded-circle p-0 d-flex" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      <span class="material-icons">
+                        keyboard_arrow_down
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="collapse modal-content border-0" id="collapseExample">
+                <div class="card border-0">
+                  <div class="card-body d-flex justify-content-end pb-x8 pe-x8 pt-0">
+                    <button type="button" class="btn btn-outline-danger card-link">Deactivate</button>
+                    <button type="button" class="btn btn-success card-link">Edit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 編輯 -->
+        <button type="button" class="btn btn-link text-dark d-flex p-1 rounded-circle" data-bs-toggle="modal"
+          data-bs-target="#edit">
+          <span class="material-icons">
+            edit
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header p-x8">
+                <h2 class="modal-title fs-4 fw-bold">Edit Admin</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body py-0">
+                <!-- 編輯表單內容 -->
+                <form action="submit">
+                  <ul class="list-unstyled">
+                    <!-- Account -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Account</h3>
+                      <label for="name" class="form-label">Name</label>
+                      <input type="text" id="name" class="form-control mb-3 py-3" aria-describedby="name"
+                        value="Emir Wicks" readonly>
+                      <label for="mail" class="form-label">Email</label>
+                      <input type="email" id="mail" class="form-control py-3" aria-describedby="name"
+                        value="emir.wicks@mail.com" readonly>
+                    </li>
+                    <!-- 認證信箱 -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Verification</h3>
+                      <ul class="list-unstyled d-flex fw-bold justify-content-between mb-3">
+                        <li class="d-flex fw-bold justify-content-between">
+                          <span class="material-icons text-primary me-2">
+                            check_circle
+                          </span>
+                          Verified
+                        </li>
+                        <li>
+                          2020/4/12
+                        </li>
+                      </ul>
+                      <button type="button" class="btn btn-outline-secondary disabled w-100 fw-bold fs-6 py-2">Send
+                        Verification Mail
+                      </button>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <!-- 存取權限等級 -->
+                      <h3 class="fs-5 fw-bold mb-3">Access Level</h3>
+                      <select class="form-select p-3" id="inputGroupSelect01">
+                        <option value="0">-Choose access level-</option>
+                        <option value="1" selected>Admin</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Custom Access</h3>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="lecture" id="lecture">
+                        <label class="form-check-label" for="lecture">
+                          Lecture
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="coupon" id="coupon">
+                        <label class="form-check-label" for="coupon">
+                          Coupon
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="message" id="message">
+                        <label class="form-check-label" for="message">
+                          Message
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="setting" id="setting">
+                        <label class="form-check-label" for="setting">
+                          Setting
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="taskMenu" id="taskMenu">
+                        <label class="form-check-label" for="taskMenu">
+                          Task Menu
+                        </label>
+                      </div>
+                    </li>
+                    <li>
+                      <h3 class="fs-5 fw-bold mb-3">Deactivate Account</h3>
+                      <p class="d-flex text-danger me-2">
+                        <span class="material-icons">
+                          warning
+                        </span>
+                        This cannot be undone!
+                      </p>
+                      <button type="button" class="btn btn-outline-danger w-100 fw-bold fs-6 py-2">Deactivate This
+                        Account
+                      </button>
+                    </li>
+                  </ul>
+                </form>
+              </div>
+              <div class="modal-footer py-3">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">#2</th>
+      <td>Zaina Goldsmith</td>
+      <td>zaina.goldsmith@mail.com</td>
+      <td>Yes</td>
+      <td class="d-flex justify-content-end">
+        <!-- 查看詳細資料 -->
+        <button type="button " class="btn btn-link text-dark d-flex p-1 rounded-circle me-3" data-bs-toggle="modal"
+          data-bs-target="#adminInfo">
+          <span class="material-icons">
+            remove_red_eye
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="adminInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body d-flex">
+                <!-- 圖 -->
+                <div class="modal-image ratio ratio-1x1 me-4">
+                  <img class="rounded modal-image object-fit-cover"
+                    src="https://images.unsplash.com/photo-1522069394066-326005dc26b2?ixlib=rb-1.2.1&ixid=eyjhchbfawqiojeymdd9&auto=format&fit=crop&w=1350&q=80"
+                    alt="">
+                </div>
+                <!-- 字 -->
+                <div>
+                  <!-- 字 head -->
+                  <div class="d-flex justify-content-between align-items-stretch modal-text">
+                    <h3 class="fs-5 mb-2">#1</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <!-- 字 body -->
+                  <ul class="list-unstyled">
+                    <li>
+                      <h3 class="fs-5">Admin</h3>
+                    </li>
+                    <li>
+                      <h2 class="fs-4 fw-bold mb-2">Emir Wicks</h2>
+                    </li>
+                    <li class="text-lowercase text-secondary fs-small mb-x5">
+                      emir.wicks@mail.com
+                    </li>
+                  </ul>
+                  <!-- 字 footer -->
+                  <div class="d-flex justify-content-between">
+                    <span class="badge bg-light text-dark fw-normal">
+                      Verified
+                    </span>
+                    <button class="btn btn-link rounded-circle p-0 d-flex" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      <span class="material-icons">
+                        keyboard_arrow_down
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="collapse modal-content border-0" id="collapseExample">
+                <div class="card border-0">
+                  <div class="card-body d-flex justify-content-end pb-x8 pe-x8 pt-0">
+                    <button type="button" class="btn btn-outline-danger card-link">Deactivate</button>
+                    <button type="button" class="btn btn-success card-link">Edit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 編輯 -->
+        <button type="button" class="btn btn-link text-dark d-flex p-1 rounded-circle" data-bs-toggle="modal"
+          data-bs-target="#edit">
+          <span class="material-icons">
+            edit
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header p-x8">
+                <h2 class="modal-title fs-4 fw-bold">Edit Admin</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body py-0">
+                <!-- 編輯表單內容 -->
+                <form action="submit">
+                  <ul class="list-unstyled">
+                    <!-- Account -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Account</h3>
+                      <label for="name" class="form-label">Name</label>
+                      <input type="text" id="name" class="form-control mb-3 py-3" aria-describedby="name" value="Emir Wicks"
+                        readonly>
+                      <label for="mail" class="form-label">Email</label>
+                      <input type="email" id="mail" class="form-control py-3" aria-describedby="name"
+                        value="emir.wicks@mail.com" readonly>
+                    </li>
+                    <!-- 認證信箱 -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Verification</h3>
+                      <ul class="list-unstyled d-flex fw-bold justify-content-between mb-3">
+                        <li class="d-flex fw-bold justify-content-between">
+                          <span class="material-icons text-primary me-2">
+                            check_circle
+                          </span>
+                          Verified
+                        </li>
+                        <li>
+                          2020/4/12
+                        </li>
+                      </ul>
+                      <button type="button" class="btn btn-outline-secondary disabled w-100 fw-bold fs-6 py-2">Send
+                        Verification Mail
+                      </button>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <!-- 存取權限等級 -->
+                      <h3 class="fs-5 fw-bold mb-3">Access Level</h3>
+                      <select class="form-select p-3" id="inputGroupSelect01">
+                        <option value="0">-Choose access level-</option>
+                        <option value="1" selected>Admin</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Custom Access</h3>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="lecture" id="lecture">
+                        <label class="form-check-label" for="lecture">
+                          Lecture
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="coupon" id="coupon">
+                        <label class="form-check-label" for="coupon">
+                          Coupon
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="message" id="message">
+                        <label class="form-check-label" for="message">
+                          Message
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="setting" id="setting">
+                        <label class="form-check-label" for="setting">
+                          Setting
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="taskMenu" id="taskMenu">
+                        <label class="form-check-label" for="taskMenu">
+                          Task Menu
+                        </label>
+                      </div>
+                    </li>
+                    <li>
+                      <h3 class="fs-5 fw-bold mb-3">Deactivate Account</h3>
+                      <p class="d-flex text-danger me-2">
+                        <span class="material-icons">
+                          warning
+                        </span>
+                        This cannot be undone!
+                      </p>
+                      <button type="button" class="btn btn-outline-danger w-100 fw-bold fs-6 py-2">Deactivate This
+                        Account
+                      </button>
+                    </li>
+                  </ul>
+                </form>
+              </div>
+              <div class="modal-footer py-3">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">#3</th>
+      <td>Emir Wicks</td>
+      <td>emir.wicks@mail.com</td>
+      <td>Yes</td>
+      <td class="d-flex justify-content-end">
+        <!-- 查看詳細資料 -->
+        <button type="button " class="btn btn-link text-dark d-flex p-1 rounded-circle me-3" data-bs-toggle="modal"
+          data-bs-target="#adminInfo">
+          <span class="material-icons">
+            remove_red_eye
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="adminInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body d-flex">
+                <!-- 圖 -->
+                <div class="modal-image ratio ratio-1x1 me-4">
+                  <img class="rounded modal-image object-fit-cover"
+                    src="https://images.unsplash.com/photo-1522069394066-326005dc26b2?ixlib=rb-1.2.1&ixid=eyjhchbfawqiojeymdd9&auto=format&fit=crop&w=1350&q=80"
+                    alt="">
+                </div>
+                <!-- 字 -->
+                <div>
+                  <!-- 字 head -->
+                  <div class="d-flex justify-content-between align-items-stretch modal-text">
+                    <h3 class="fs-5 mb-2">#1</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <!-- 字 body -->
+                  <ul class="list-unstyled">
+                    <li>
+                      <h3 class="fs-5">Admin</h3>
+                    </li>
+                    <li>
+                      <h2 class="fs-4 fw-bold mb-2">Emir Wicks</h2>
+                    </li>
+                    <li class="text-lowercase text-secondary fs-small mb-x5">
+                      emir.wicks@mail.com
+                    </li>
+                  </ul>
+                  <!-- 字 footer -->
+                  <div class="d-flex justify-content-between">
+                    <span class="badge bg-light text-dark fw-normal">
+                      Verified
+                    </span>
+                    <button class="btn btn-link rounded-circle p-0 d-flex" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      <span class="material-icons">
+                        keyboard_arrow_down
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="collapse modal-content border-0" id="collapseExample">
+                <div class="card border-0">
+                  <div class="card-body d-flex justify-content-end pb-x8 pe-x8 pt-0">
+                    <button type="button" class="btn btn-outline-danger card-link">Deactivate</button>
+                    <button type="button" class="btn btn-success card-link">Edit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 編輯 -->
+        <button type="button" class="btn btn-link text-dark d-flex p-1 rounded-circle" data-bs-toggle="modal"
+          data-bs-target="#edit">
+          <span class="material-icons">
+            edit
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header p-x8">
+                <h2 class="modal-title fs-4 fw-bold">Edit Admin</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body py-0">
+                <!-- 編輯表單內容 -->
+                <form action="submit">
+                  <ul class="list-unstyled">
+                    <!-- Account -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Account</h3>
+                      <label for="name" class="form-label">Name</label>
+                      <input type="text" id="name" class="form-control mb-3 py-3" aria-describedby="name" value="Emir Wicks"
+                        readonly>
+                      <label for="mail" class="form-label">Email</label>
+                      <input type="email" id="mail" class="form-control py-3" aria-describedby="name"
+                        value="emir.wicks@mail.com" readonly>
+                    </li>
+                    <!-- 認證信箱 -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Verification</h3>
+                      <ul class="list-unstyled d-flex fw-bold justify-content-between mb-3">
+                        <li class="d-flex fw-bold justify-content-between">
+                          <span class="material-icons text-primary me-2">
+                            check_circle
+                          </span>
+                          Verified
+                        </li>
+                        <li>
+                          2020/4/12
+                        </li>
+                      </ul>
+                      <button type="button" class="btn btn-outline-secondary disabled w-100 fw-bold fs-6 py-2">Send
+                        Verification Mail
+                      </button>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <!-- 存取權限等級 -->
+                      <h3 class="fs-5 fw-bold mb-3">Access Level</h3>
+                      <select class="form-select p-3" id="inputGroupSelect01">
+                        <option value="0">-Choose access level-</option>
+                        <option value="1" selected>Admin</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Custom Access</h3>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="lecture" id="lecture">
+                        <label class="form-check-label" for="lecture">
+                          Lecture
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="coupon" id="coupon">
+                        <label class="form-check-label" for="coupon">
+                          Coupon
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="message" id="message">
+                        <label class="form-check-label" for="message">
+                          Message
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="setting" id="setting">
+                        <label class="form-check-label" for="setting">
+                          Setting
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="taskMenu" id="taskMenu">
+                        <label class="form-check-label" for="taskMenu">
+                          Task Menu
+                        </label>
+                      </div>
+                    </li>
+                    <li>
+                      <h3 class="fs-5 fw-bold mb-3">Deactivate Account</h3>
+                      <p class="d-flex text-danger me-2">
+                        <span class="material-icons">
+                          warning
+                        </span>
+                        This cannot be undone!
+                      </p>
+                      <button type="button" class="btn btn-outline-danger w-100 fw-bold fs-6 py-2">Deactivate This
+                        Account
+                      </button>
+                    </li>
+                  </ul>
+                </form>
+              </div>
+              <div class="modal-footer py-3">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">#4</th>
+      <td>Zaina Goldsmith</td>
+      <td>zaina.goldsmith@mail.com</td>
+      <td>Yes</td>
+      <td class="d-flex justify-content-end">
+        <!-- 查看詳細資料 -->
+        <button type="button " class="btn btn-link text-dark d-flex p-1 rounded-circle me-3" data-bs-toggle="modal"
+          data-bs-target="#adminInfo">
+          <span class="material-icons">
+            remove_red_eye
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="adminInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body d-flex">
+                <!-- 圖 -->
+                <div class="modal-image ratio ratio-1x1 me-4">
+                  <img class="rounded modal-image object-fit-cover"
+                    src="https://images.unsplash.com/photo-1522069394066-326005dc26b2?ixlib=rb-1.2.1&ixid=eyjhchbfawqiojeymdd9&auto=format&fit=crop&w=1350&q=80"
+                    alt="">
+                </div>
+                <!-- 字 -->
+                <div>
+                  <!-- 字 head -->
+                  <div class="d-flex justify-content-between align-items-stretch modal-text">
+                    <h3 class="fs-5 mb-2">#1</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <!-- 字 body -->
+                  <ul class="list-unstyled">
+                    <li>
+                      <h3 class="fs-5">Admin</h3>
+                    </li>
+                    <li>
+                      <h2 class="fs-4 fw-bold mb-2">Emir Wicks</h2>
+                    </li>
+                    <li class="text-lowercase text-secondary fs-small mb-x5">
+                      emir.wicks@mail.com
+                    </li>
+                  </ul>
+                  <!-- 字 footer -->
+                  <div class="d-flex justify-content-between">
+                    <span class="badge bg-light text-dark fw-normal">
+                      Verified
+                    </span>
+                    <button class="btn btn-link rounded-circle p-0 d-flex" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      <span class="material-icons">
+                        keyboard_arrow_down
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="collapse modal-content border-0" id="collapseExample">
+                <div class="card border-0">
+                  <div class="card-body d-flex justify-content-end pb-x8 pe-x8 pt-0">
+                    <button type="button" class="btn btn-outline-danger card-link">Deactivate</button>
+                    <button type="button" class="btn btn-success card-link">Edit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 編輯 -->
+        <button type="button" class="btn btn-link text-dark d-flex p-1 rounded-circle" data-bs-toggle="modal"
+          data-bs-target="#edit">
+          <span class="material-icons">
+            edit
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header p-x8">
+                <h2 class="modal-title fs-4 fw-bold">Edit Admin</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body py-0">
+                <!-- 編輯表單內容 -->
+                <form action="submit">
+                  <ul class="list-unstyled">
+                    <!-- Account -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Account</h3>
+                      <label for="name" class="form-label">Name</label>
+                      <input type="text" id="name" class="form-control mb-3 py-3" aria-describedby="name" value="Emir Wicks"
+                        readonly>
+                      <label for="mail" class="form-label">Email</label>
+                      <input type="email" id="mail" class="form-control py-3" aria-describedby="name"
+                        value="emir.wicks@mail.com" readonly>
+                    </li>
+                    <!-- 認證信箱 -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Verification</h3>
+                      <ul class="list-unstyled d-flex fw-bold justify-content-between mb-3">
+                        <li class="d-flex fw-bold justify-content-between">
+                          <span class="material-icons text-primary me-2">
+                            check_circle
+                          </span>
+                          Verified
+                        </li>
+                        <li>
+                          2020/4/12
+                        </li>
+                      </ul>
+                      <button type="button" class="btn btn-outline-secondary disabled w-100 fw-bold fs-6 py-2">Send
+                        Verification Mail
+                      </button>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <!-- 存取權限等級 -->
+                      <h3 class="fs-5 fw-bold mb-3">Access Level</h3>
+                      <select class="form-select p-3" id="inputGroupSelect01">
+                        <option value="0">-Choose access level-</option>
+                        <option value="1" selected>Admin</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Custom Access</h3>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="lecture" id="lecture">
+                        <label class="form-check-label" for="lecture">
+                          Lecture
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="coupon" id="coupon">
+                        <label class="form-check-label" for="coupon">
+                          Coupon
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="message" id="message">
+                        <label class="form-check-label" for="message">
+                          Message
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="setting" id="setting">
+                        <label class="form-check-label" for="setting">
+                          Setting
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="taskMenu" id="taskMenu">
+                        <label class="form-check-label" for="taskMenu">
+                          Task Menu
+                        </label>
+                      </div>
+                    </li>
+                    <li>
+                      <h3 class="fs-5 fw-bold mb-3">Deactivate Account</h3>
+                      <p class="d-flex text-danger me-2">
+                        <span class="material-icons">
+                          warning
+                        </span>
+                        This cannot be undone!
+                      </p>
+                      <button type="button" class="btn btn-outline-danger w-100 fw-bold fs-6 py-2">Deactivate This
+                        Account
+                      </button>
+                    </li>
+                  </ul>
+                </form>
+              </div>
+              <div class="modal-footer py-3">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">#5</th>
+      <td>Emir Wicks</td>
+      <td>emir.wicks@mail.com</td>
+      <td>Yes</td>
+      <td class="d-flex justify-content-end">
+        <!-- 查看詳細資料 -->
+        <button type="button " class="btn btn-link text-dark d-flex p-1 rounded-circle me-3" data-bs-toggle="modal"
+          data-bs-target="#adminInfo">
+          <span class="material-icons">
+            remove_red_eye
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="adminInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body d-flex">
+                <!-- 圖 -->
+                <div class="modal-image ratio ratio-1x1 me-4">
+                  <img class="rounded modal-image object-fit-cover"
+                    src="https://images.unsplash.com/photo-1522069394066-326005dc26b2?ixlib=rb-1.2.1&ixid=eyjhchbfawqiojeymdd9&auto=format&fit=crop&w=1350&q=80"
+                    alt="">
+                </div>
+                <!-- 字 -->
+                <div>
+                  <!-- 字 head -->
+                  <div class="d-flex justify-content-between align-items-stretch modal-text">
+                    <h3 class="fs-5 mb-2">#1</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <!-- 字 body -->
+                  <ul class="list-unstyled">
+                    <li>
+                      <h3 class="fs-5">Admin</h3>
+                    </li>
+                    <li>
+                      <h2 class="fs-4 fw-bold mb-2">Emir Wicks</h2>
+                    </li>
+                    <li class="text-lowercase text-secondary fs-small mb-x5">
+                      emir.wicks@mail.com
+                    </li>
+                  </ul>
+                  <!-- 字 footer -->
+                  <div class="d-flex justify-content-between">
+                    <span class="badge bg-light text-dark fw-normal">
+                      Verified
+                    </span>
+                    <button class="btn btn-link rounded-circle p-0 d-flex" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      <span class="material-icons">
+                        keyboard_arrow_down
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="collapse modal-content border-0" id="collapseExample">
+                <div class="card border-0">
+                  <div class="card-body d-flex justify-content-end pb-x8 pe-x8 pt-0">
+                    <button type="button" class="btn btn-outline-danger card-link">Deactivate</button>
+                    <button type="button" class="btn btn-success card-link">Edit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 編輯 -->
+        <button type="button" class="btn btn-link text-dark d-flex p-1 rounded-circle" data-bs-toggle="modal"
+          data-bs-target="#edit">
+          <span class="material-icons">
+            edit
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header p-x8">
+                <h2 class="modal-title fs-4 fw-bold">Edit Admin</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body py-0">
+                <!-- 編輯表單內容 -->
+                <form action="submit">
+                  <ul class="list-unstyled">
+                    <!-- Account -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Account</h3>
+                      <label for="name" class="form-label">Name</label>
+                      <input type="text" id="name" class="form-control mb-3 py-3" aria-describedby="name" value="Emir Wicks"
+                        readonly>
+                      <label for="mail" class="form-label">Email</label>
+                      <input type="email" id="mail" class="form-control py-3" aria-describedby="name"
+                        value="emir.wicks@mail.com" readonly>
+                    </li>
+                    <!-- 認證信箱 -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Verification</h3>
+                      <ul class="list-unstyled d-flex fw-bold justify-content-between mb-3">
+                        <li class="d-flex fw-bold justify-content-between">
+                          <span class="material-icons text-primary me-2">
+                            check_circle
+                          </span>
+                          Verified
+                        </li>
+                        <li>
+                          2020/4/12
+                        </li>
+                      </ul>
+                      <button type="button" class="btn btn-outline-secondary disabled w-100 fw-bold fs-6 py-2">Send
+                        Verification Mail
+                      </button>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <!-- 存取權限等級 -->
+                      <h3 class="fs-5 fw-bold mb-3">Access Level</h3>
+                      <select class="form-select p-3" id="inputGroupSelect01">
+                        <option value="0">-Choose access level-</option>
+                        <option value="1" selected>Admin</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Custom Access</h3>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="lecture" id="lecture">
+                        <label class="form-check-label" for="lecture">
+                          Lecture
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="coupon" id="coupon">
+                        <label class="form-check-label" for="coupon">
+                          Coupon
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="message" id="message">
+                        <label class="form-check-label" for="message">
+                          Message
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="setting" id="setting">
+                        <label class="form-check-label" for="setting">
+                          Setting
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="taskMenu" id="taskMenu">
+                        <label class="form-check-label" for="taskMenu">
+                          Task Menu
+                        </label>
+                      </div>
+                    </li>
+                    <li>
+                      <h3 class="fs-5 fw-bold mb-3">Deactivate Account</h3>
+                      <p class="d-flex text-danger me-2">
+                        <span class="material-icons">
+                          warning
+                        </span>
+                        This cannot be undone!
+                      </p>
+                      <button type="button" class="btn btn-outline-danger w-100 fw-bold fs-6 py-2">Deactivate This
+                        Account
+                      </button>
+                    </li>
+                  </ul>
+                </form>
+              </div>
+              <div class="modal-footer py-3">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">#6</th>
+      <td>Zaina Goldsmith</td>
+      <td>zaina.goldsmith@mail.com</td>
+      <td>Yes</td>
+      <td class="d-flex justify-content-end">
+        <!-- 查看詳細資料 -->
+        <button type="button " class="btn btn-link text-dark d-flex p-1 rounded-circle me-3" data-bs-toggle="modal"
+          data-bs-target="#adminInfo">
+          <span class="material-icons">
+            remove_red_eye
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="adminInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body d-flex">
+                <!-- 圖 -->
+                <div class="modal-image ratio ratio-1x1 me-4">
+                  <img class="rounded modal-image object-fit-cover"
+                    src="https://images.unsplash.com/photo-1522069394066-326005dc26b2?ixlib=rb-1.2.1&ixid=eyjhchbfawqiojeymdd9&auto=format&fit=crop&w=1350&q=80"
+                    alt="">
+                </div>
+                <!-- 字 -->
+                <div>
+                  <!-- 字 head -->
+                  <div class="d-flex justify-content-between align-items-stretch modal-text">
+                    <h3 class="fs-5 mb-2">#1</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <!-- 字 body -->
+                  <ul class="list-unstyled">
+                    <li>
+                      <h3 class="fs-5">Admin</h3>
+                    </li>
+                    <li>
+                      <h2 class="fs-4 fw-bold mb-2">Emir Wicks</h2>
+                    </li>
+                    <li class="text-lowercase text-secondary fs-small mb-x5">
+                      emir.wicks@mail.com
+                    </li>
+                  </ul>
+                  <!-- 字 footer -->
+                  <div class="d-flex justify-content-between">
+                    <span class="badge bg-light text-dark fw-normal">
+                      Verified
+                    </span>
+                    <button class="btn btn-link rounded-circle p-0 d-flex" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      <span class="material-icons">
+                        keyboard_arrow_down
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="collapse modal-content border-0" id="collapseExample">
+                <div class="card border-0">
+                  <div class="card-body d-flex justify-content-end pb-x8 pe-x8 pt-0">
+                    <button type="button" class="btn btn-outline-danger card-link">Deactivate</button>
+                    <button type="button" class="btn btn-success card-link">Edit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 編輯 -->
+        <button type="button" class="btn btn-link text-dark d-flex p-1 rounded-circle" data-bs-toggle="modal"
+          data-bs-target="#edit">
+          <span class="material-icons">
+            edit
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header p-x8">
+                <h2 class="modal-title fs-4 fw-bold">Edit Admin</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body py-0">
+                <!-- 編輯表單內容 -->
+                <form action="submit">
+                  <ul class="list-unstyled">
+                    <!-- Account -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Account</h3>
+                      <label for="name" class="form-label">Name</label>
+                      <input type="text" id="name" class="form-control mb-3 py-3" aria-describedby="name" value="Emir Wicks"
+                        readonly>
+                      <label for="mail" class="form-label">Email</label>
+                      <input type="email" id="mail" class="form-control py-3" aria-describedby="name"
+                        value="emir.wicks@mail.com" readonly>
+                    </li>
+                    <!-- 認證信箱 -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Verification</h3>
+                      <div class="d-flex fw-bold">
+                        <span class="material-icons text-primary me-2">
+                          check_circle
+                        </span>
+                        Verified
+                      </div>
+                      <small>2020/4/12</small>
+              </div>
+              <button type="button" class="btn btn-outline-secondary disabled w-100 fw-bold fs-6 py-2">Send
+                Verification Mail
+              </button>
+              </li>
+              <li class="pb-4 border-bottom border-gray-400 mb-4">
+                <!-- 存取權限等級 -->
+                <h3 class="fs-5 fw-bold mb-3">Access Level</h3>
+                <select class="form-select p-3" id="inputGroupSelect01">
+                  <option value="0">-Choose access level-</option>
+                  <option value="1" selected>Admin</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </li>
+              <li class="pb-4 border-bottom border-gray-400 mb-4">
+                <h3 class="fs-5 fw-bold mb-3">Custom Access</h3>
+                <div class="form-check mb-x5">
+                  <input class="form-check-input" type="checkbox" value="lecture" id="lecture">
+                  <label class="form-check-label" for="lecture">
+                    Lecture
+                  </label>
+                </div>
+                <div class="form-check mb-x5">
+                  <input class="form-check-input" type="checkbox" value="coupon" id="coupon">
+                  <label class="form-check-label" for="coupon">
+                    Coupon
+                  </label>
+                </div>
+                <div class="form-check mb-x5">
+                  <input class="form-check-input" type="checkbox" value="message" id="message">
+                  <label class="form-check-label" for="message">
+                    Message
+                  </label>
+                </div>
+                <div class="form-check mb-x5">
+                  <input class="form-check-input" type="checkbox" value="setting" id="setting">
+                  <label class="form-check-label" for="setting">
+                    Setting
+                  </label>
+                </div>
+                <div class="form-check mb-x5">
+                  <input class="form-check-input" type="checkbox" value="taskMenu" id="taskMenu">
+                  <label class="form-check-label" for="taskMenu">
+                    Task Menu
+                  </label>
+                </div>
+              </li>
+              <li>
+                <h3 class="fs-5 fw-bold mb-3">Deactivate Account</h3>
+                <p class="d-flex text-danger me-2">
+                  <span class="material-icons">
+                    warning
+                  </span>
+                  This cannot be undone!
+                </p>
+                <button type="button" class="btn btn-outline-danger w-100 fw-bold fs-6 py-2">Deactivate This Account
+                </button>
+              </li>
+              </ul>
+              </form>
+            </div>
+            <div class="modal-footer py-3">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">#7</th>
+      <td>Emir Wicks</td>
+      <td>emir.wicks@mail.com</td>
+      <td>Yes</td>
+      <td class="d-flex justify-content-end">
+        <!-- 查看詳細資料 -->
+        <button type="button " class="btn btn-link text-dark d-flex p-1 rounded-circle me-3" data-bs-toggle="modal"
+          data-bs-target="#adminInfo">
+          <span class="material-icons">
+            remove_red_eye
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="adminInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body d-flex">
+                <!-- 圖 -->
+                <div class="modal-image ratio ratio-1x1 me-4">
+                  <img class="rounded modal-image object-fit-cover"
+                    src="https://images.unsplash.com/photo-1522069394066-326005dc26b2?ixlib=rb-1.2.1&ixid=eyjhchbfawqiojeymdd9&auto=format&fit=crop&w=1350&q=80"
+                    alt="">
+                </div>
+                <!-- 字 -->
+                <div>
+                  <!-- 字 head -->
+                  <div class="d-flex justify-content-between align-items-stretch modal-text">
+                    <h3 class="fs-5 mb-2">#1</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <!-- 字 body -->
+                  <ul class="list-unstyled">
+                    <li>
+                      <h3 class="fs-5">Admin</h3>
+                    </li>
+                    <li>
+                      <h2 class="fs-4 fw-bold mb-2">Emir Wicks</h2>
+                    </li>
+                    <li class="text-lowercase text-secondary fs-small mb-x5">
+                      emir.wicks@mail.com
+                    </li>
+                  </ul>
+                  <!-- 字 footer -->
+                  <div class="d-flex justify-content-between">
+                    <span class="badge bg-light text-dark fw-normal">
+                      Verified
+                    </span>
+                    <button class="btn btn-link rounded-circle p-0 d-flex" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      <span class="material-icons">
+                        keyboard_arrow_down
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="collapse modal-content border-0" id="collapseExample">
+                <div class="card border-0">
+                  <div class="card-body d-flex justify-content-end pb-x8 pe-x8 pt-0">
+                    <button type="button" class="btn btn-outline-danger card-link">Deactivate</button>
+                    <button type="button" class="btn btn-success card-link">Edit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 編輯 -->
+        <button type="button" class="btn btn-link text-dark d-flex p-1 rounded-circle" data-bs-toggle="modal"
+          data-bs-target="#edit">
+          <span class="material-icons">
+            edit
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header p-x8">
+                <h2 class="modal-title fs-4 fw-bold">Edit Admin</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body py-0">
+                <!-- 編輯表單內容 -->
+                <form action="submit">
+                  <ul class="list-unstyled">
+                    <!-- Account -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Account</h3>
+                      <label for="name" class="form-label">Name</label>
+                      <input type="text" id="name" class="form-control mb-3 py-3" aria-describedby="name"
+                        value="Emir Wicks" readonly>
+                      <label for="mail" class="form-label">Email</label>
+                      <input type="email" id="mail" class="form-control py-3" aria-describedby="name"
+                        value="emir.wicks@mail.com" readonly>
+                    </li>
+                    <!-- 認證信箱 -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Verification</h3>
+                      <ul class="list-unstyled d-flex fw-bold justify-content-between mb-3">
+                        <li class="d-flex fw-bold justify-content-between">
+                          <span class="material-icons text-primary me-2">
+                            check_circle
+                          </span>
+                          Verified
+                        </li>
+                        <li>
+                          2020/4/12
+                        </li>
+                      </ul>
+                      <button type="button" class="btn btn-outline-secondary disabled w-100 fw-bold fs-6 py-2">Send
+                        Verification Mail
+                      </button>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <!-- 存取權限等級 -->
+                      <h3 class="fs-5 fw-bold mb-3">Access Level</h3>
+                      <select class="form-select p-3" id="inputGroupSelect01">
+                        <option value="0">-Choose access level-</option>
+                        <option value="1" selected>Admin</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Custom Access</h3>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="lecture" id="lecture">
+                        <label class="form-check-label" for="lecture">
+                          Lecture
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="coupon" id="coupon">
+                        <label class="form-check-label" for="coupon">
+                          Coupon
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="message" id="message">
+                        <label class="form-check-label" for="message">
+                          Message
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="setting" id="setting">
+                        <label class="form-check-label" for="setting">
+                          Setting
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="taskMenu" id="taskMenu">
+                        <label class="form-check-label" for="taskMenu">
+                          Task Menu
+                        </label>
+                      </div>
+                    </li>
+                    <li>
+                      <h3 class="fs-5 fw-bold mb-3">Deactivate Account</h3>
+                      <p class="d-flex text-danger me-2">
+                        <span class="material-icons">
+                          warning
+                        </span>
+                        This cannot be undone!
+                      </p>
+                      <button type="button" class="btn btn-outline-danger w-100 fw-bold fs-6 py-2">Deactivate This
+                        Account
+                      </button>
+                    </li>
+                  </ul>
+                </form>
+              </div>
+              <div class="modal-footer py-3">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">#8</th>
+      <td>Zaina Goldsmith</td>
+      <td>zaina.goldsmith@mail.com</td>
+      <td>Yes</td>
+      <td class="d-flex justify-content-end">
+        <!-- 查看詳細資料 -->
+        <button type="button " class="btn btn-link text-dark d-flex p-1 rounded-circle me-3" data-bs-toggle="modal"
+          data-bs-target="#adminInfo">
+          <span class="material-icons">
+            remove_red_eye
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="adminInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body d-flex">
+                <!-- 圖 -->
+                <div class="modal-image ratio ratio-1x1 me-4">
+                  <img class="rounded modal-image object-fit-cover"
+                    src="https://images.unsplash.com/photo-1522069394066-326005dc26b2?ixlib=rb-1.2.1&ixid=eyjhchbfawqiojeymdd9&auto=format&fit=crop&w=1350&q=80"
+                    alt="">
+                </div>
+                <!-- 字 -->
+                <div>
+                  <!-- 字 head -->
+                  <div class="d-flex justify-content-between align-items-stretch modal-text">
+                    <h3 class="fs-5 mb-2">#1</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <!-- 字 body -->
+                  <ul class="list-unstyled">
+                    <li>
+                      <h3 class="fs-5">Admin</h3>
+                    </li>
+                    <li>
+                      <h2 class="fs-4 fw-bold mb-2">Emir Wicks</h2>
+                    </li>
+                    <li class="text-lowercase text-secondary fs-small mb-x5">
+                      emir.wicks@mail.com
+                    </li>
+                  </ul>
+                  <!-- 字 footer -->
+                  <div class="d-flex justify-content-between">
+                    <span class="badge bg-light text-dark fw-normal">
+                      Verified
+                    </span>
+                    <button class="btn btn-link rounded-circle p-0 d-flex" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      <span class="material-icons">
+                        keyboard_arrow_down
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="collapse modal-content border-0" id="collapseExample">
+                <div class="card border-0">
+                  <div class="card-body d-flex justify-content-end pb-x8 pe-x8 pt-0">
+                    <button type="button" class="btn btn-outline-danger card-link">Deactivate</button>
+                    <button type="button" class="btn btn-success card-link">Edit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 編輯 -->
+        <button type="button" class="btn btn-link text-dark d-flex p-1 rounded-circle" data-bs-toggle="modal"
+          data-bs-target="#edit">
+          <span class="material-icons">
+            edit
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header p-x8">
+                <h2 class="modal-title fs-4 fw-bold">Edit Admin</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body py-0">
+                <!-- 編輯表單內容 -->
+                <form action="submit">
+                  <ul class="list-unstyled">
+                    <!-- Account -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Account</h3>
+                      <label for="name" class="form-label">Name</label>
+                      <input type="text" id="name" class="form-control mb-3 py-3" aria-describedby="name"
+                        value="Emir Wicks" readonly>
+                      <label for="mail" class="form-label">Email</label>
+                      <input type="email" id="mail" class="form-control py-3" aria-describedby="name"
+                        value="emir.wicks@mail.com" readonly>
+                    </li>
+                    <!-- 認證信箱 -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Verification</h3>
+                      <ul class="list-unstyled d-flex fw-bold justify-content-between mb-3">
+                        <li class="d-flex fw-bold justify-content-between">
+                          <span class="material-icons text-primary me-2">
+                            check_circle
+                          </span>
+                          Verified
+                        </li>
+                        <li>
+                          2020/4/12
+                        </li>
+                      </ul>
+                      <button type="button" class="btn btn-outline-secondary disabled w-100 fw-bold fs-6 py-2">Send
+                        Verification Mail
+                      </button>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <!-- 存取權限等級 -->
+                      <h3 class="fs-5 fw-bold mb-3">Access Level</h3>
+                      <select class="form-select p-3" id="inputGroupSelect01">
+                        <option value="0">-Choose access level-</option>
+                        <option value="1" selected>Admin</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Custom Access</h3>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="lecture" id="lecture">
+                        <label class="form-check-label" for="lecture">
+                          Lecture
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="coupon" id="coupon">
+                        <label class="form-check-label" for="coupon">
+                          Coupon
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="message" id="message">
+                        <label class="form-check-label" for="message">
+                          Message
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="setting" id="setting">
+                        <label class="form-check-label" for="setting">
+                          Setting
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="taskMenu" id="taskMenu">
+                        <label class="form-check-label" for="taskMenu">
+                          Task Menu
+                        </label>
+                      </div>
+                    </li>
+                    <li>
+                      <h3 class="fs-5 fw-bold mb-3">Deactivate Account</h3>
+                      <p class="d-flex text-danger me-2">
+                        <span class="material-icons">
+                          warning
+                        </span>
+                        This cannot be undone!
+                      </p>
+                      <button type="button" class="btn btn-outline-danger w-100 fw-bold fs-6 py-2">Deactivate This
+                        Account
+                      </button>
+                    </li>
+                  </ul>
+                </form>
+              </div>
+              <div class="modal-footer py-3">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">#9</th>
+      <td>Emir Wicks</td>
+      <td>emir.wicks@mail.com</td>
+      <td>Yes</td>
+      <td class="d-flex justify-content-end">
+        <!-- 查看詳細資料 -->
+        <button type="button " class="btn btn-link text-dark d-flex p-1 rounded-circle me-3" data-bs-toggle="modal"
+          data-bs-target="#adminInfo">
+          <span class="material-icons">
+            remove_red_eye
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="adminInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body d-flex">
+                <!-- 圖 -->
+                <div class="modal-image ratio ratio-1x1 me-4">
+                  <img class="rounded modal-image object-fit-cover"
+                    src="https://images.unsplash.com/photo-1522069394066-326005dc26b2?ixlib=rb-1.2.1&ixid=eyjhchbfawqiojeymdd9&auto=format&fit=crop&w=1350&q=80"
+                    alt="">
+                </div>
+                <!-- 字 -->
+                <div>
+                  <!-- 字 head -->
+                  <div class="d-flex justify-content-between align-items-stretch modal-text">
+                    <h3 class="fs-5 mb-2">#1</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <!-- 字 body -->
+                  <ul class="list-unstyled">
+                    <li>
+                      <h3 class="fs-5">Admin</h3>
+                    </li>
+                    <li>
+                      <h2 class="fs-4 fw-bold mb-2">Emir Wicks</h2>
+                    </li>
+                    <li class="text-lowercase text-secondary fs-small mb-x5">
+                      emir.wicks@mail.com
+                    </li>
+                  </ul>
+                  <!-- 字 footer -->
+                  <div class="d-flex justify-content-between">
+                    <span class="badge bg-light text-dark fw-normal">
+                      Verified
+                    </span>
+                    <button class="btn btn-link rounded-circle p-0 d-flex" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      <span class="material-icons">
+                        keyboard_arrow_down
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="collapse modal-content border-0" id="collapseExample">
+                <div class="card border-0">
+                  <div class="card-body d-flex justify-content-end pb-x8 pe-x8 pt-0">
+                    <button type="button" class="btn btn-outline-danger card-link">Deactivate</button>
+                    <button type="button" class="btn btn-success card-link">Edit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 編輯 -->
+        <button type="button" class="btn btn-link text-dark d-flex p-1 rounded-circle" data-bs-toggle="modal"
+          data-bs-target="#edit">
+          <span class="material-icons">
+            edit
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header p-x8">
+                <h2 class="modal-title fs-4 fw-bold">Edit Admin</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body py-0">
+                <!-- 編輯表單內容 -->
+                <form action="submit">
+                  <ul class="list-unstyled">
+                    <!-- Account -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Account</h3>
+                      <label for="name" class="form-label">Name</label>
+                      <input type="text" id="name" class="form-control mb-3 py-3" aria-describedby="name"
+                        value="Emir Wicks" readonly>
+                      <label for="mail" class="form-label">Email</label>
+                      <input type="email" id="mail" class="form-control py-3" aria-describedby="name"
+                        value="emir.wicks@mail.com" readonly>
+                    </li>
+                    <!-- 認證信箱 -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Verification</h3>
+                      <ul class="list-unstyled d-flex fw-bold justify-content-between mb-3">
+                        <li class="d-flex fw-bold justify-content-between">
+                          <span class="material-icons text-primary me-2">
+                            check_circle
+                          </span>
+                          Verified
+                        </li>
+                        <li>
+                          2020/4/12
+                        </li>
+                      </ul>
+                      <button type="button" class="btn btn-outline-secondary disabled w-100 fw-bold fs-6 py-2">Send
+                        Verification Mail
+                      </button>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <!-- 存取權限等級 -->
+                      <h3 class="fs-5 fw-bold mb-3">Access Level</h3>
+                      <select class="form-select p-3" id="inputGroupSelect01">
+                        <option value="0">-Choose access level-</option>
+                        <option value="1" selected>Admin</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Custom Access</h3>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="lecture" id="lecture">
+                        <label class="form-check-label" for="lecture">
+                          Lecture
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="coupon" id="coupon">
+                        <label class="form-check-label" for="coupon">
+                          Coupon
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="message" id="message">
+                        <label class="form-check-label" for="message">
+                          Message
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="setting" id="setting">
+                        <label class="form-check-label" for="setting">
+                          Setting
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="taskMenu" id="taskMenu">
+                        <label class="form-check-label" for="taskMenu">
+                          Task Menu
+                        </label>
+                      </div>
+                    </li>
+                    <li>
+                      <h3 class="fs-5 fw-bold mb-3">Deactivate Account</h3>
+                      <p class="d-flex text-danger me-2">
+                        <span class="material-icons">
+                          warning
+                        </span>
+                        This cannot be undone!
+                      </p>
+                      <button type="button" class="btn btn-outline-danger w-100 fw-bold fs-6 py-2">Deactivate This
+                        Account
+                      </button>
+                    </li>
+                  </ul>
+                </form>
+              </div>
+              <div class="modal-footer py-3">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">#10</th>
+      <td>Zaina Goldsmith</td>
+      <td>zaina.goldsmith@mail.com</td>
+      <td>Yes</td>
+      <td class="d-flex justify-content-end">
+        <!-- 查看詳細資料 -->
+        <button type="button " class="btn btn-link text-dark d-flex p-1 rounded-circle me-3" data-bs-toggle="modal"
+          data-bs-target="#adminInfo">
+          <span class="material-icons">
+            remove_red_eye
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="adminInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body d-flex">
+                <!-- 圖 -->
+                <div class="modal-image ratio ratio-1x1 me-4">
+                  <img class="rounded modal-image object-fit-cover"
+                    src="https://images.unsplash.com/photo-1522069394066-326005dc26b2?ixlib=rb-1.2.1&ixid=eyjhchbfawqiojeymdd9&auto=format&fit=crop&w=1350&q=80"
+                    alt="">
+                </div>
+                <!-- 字 -->
+                <div>
+                  <!-- 字 head -->
+                  <div class="d-flex justify-content-between align-items-stretch modal-text">
+                    <h3 class="fs-5 mb-2">#1</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <!-- 字 body -->
+                  <ul class="list-unstyled">
+                    <li>
+                      <h3 class="fs-5">Admin</h3>
+                    </li>
+                    <li>
+                      <h2 class="fs-4 fw-bold mb-2">Emir Wicks</h2>
+                    </li>
+                    <li class="text-lowercase text-secondary fs-small mb-x5">
+                      emir.wicks@mail.com
+                    </li>
+                  </ul>
+                  <!-- 字 footer -->
+                  <div class="d-flex justify-content-between">
+                    <span class="badge bg-light text-dark fw-normal">
+                      Verified
+                    </span>
+                    <button class="btn btn-link rounded-circle p-0 d-flex" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      <span class="material-icons">
+                        keyboard_arrow_down
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="collapse modal-content border-0" id="collapseExample">
+                <div class="card border-0">
+                  <div class="card-body d-flex justify-content-end pb-x8 pe-x8 pt-0">
+                    <button type="button" class="btn btn-outline-danger card-link">Deactivate</button>
+                    <button type="button" class="btn btn-success card-link">Edit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 編輯 -->
+        <button type="button" class="btn btn-link text-dark d-flex p-1 rounded-circle" data-bs-toggle="modal"
+          data-bs-target="#edit">
+          <span class="material-icons">
+            edit
+          </span>
+        </button>
+        <!-- modal 詳細資料 -->
+        <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header p-x8">
+                <h2 class="modal-title fs-4 fw-bold">Edit Admin</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body py-0">
+                <!-- 編輯表單內容 -->
+                <form action="submit">
+                  <ul class="list-unstyled">
+                    <!-- Account -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Account</h3>
+                      <label for="name" class="form-label">Name</label>
+                      <input type="text" id="name" class="form-control mb-3 py-3" aria-describedby="name"
+                        value="Emir Wicks" readonly>
+                      <label for="mail" class="form-label">Email</label>
+                      <input type="email" id="mail" class="form-control py-3" aria-describedby="name"
+                        value="emir.wicks@mail.com" readonly>
+                    </li>
+                    <!-- 認證信箱 -->
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Verification</h3>
+                      <ul class="list-unstyled d-flex fw-bold justify-content-between mb-3">
+                        <li class="d-flex fw-bold justify-content-between">
+                          <span class="material-icons text-primary me-2">
+                            check_circle
+                          </span>
+                          Verified
+                        </li>
+                        <li>
+                          2020/4/12
+                        </li>
+                      </ul>
+                      <button type="button" class="btn btn-outline-secondary disabled w-100 fw-bold fs-6 py-2">Send
+                        Verification Mail
+                      </button>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <!-- 存取權限等級 -->
+                      <h3 class="fs-5 fw-bold mb-3">Access Level</h3>
+                      <select class="form-select p-3" id="inputGroupSelect01">
+                        <option value="0">-Choose access level-</option>
+                        <option value="1" selected>Admin</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </li>
+                    <li class="pb-4 border-bottom border-gray-400 mb-4">
+                      <h3 class="fs-5 fw-bold mb-3">Custom Access</h3>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="lecture" id="lecture">
+                        <label class="form-check-label" for="lecture">
+                          Lecture
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="coupon" id="coupon">
+                        <label class="form-check-label" for="coupon">
+                          Coupon
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="message" id="message">
+                        <label class="form-check-label" for="message">
+                          Message
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="setting" id="setting">
+                        <label class="form-check-label" for="setting">
+                          Setting
+                        </label>
+                      </div>
+                      <div class="form-check mb-x5">
+                        <input class="form-check-input" type="checkbox" value="taskMenu" id="taskMenu">
+                        <label class="form-check-label" for="taskMenu">
+                          Task Menu
+                        </label>
+                      </div>
+                    </li>
+                    <li>
+                      <h3 class="fs-5 fw-bold mb-3">Deactivate Account</h3>
+                      <p class="d-flex text-danger me-2">
+                        <span class="material-icons">
+                          warning
+                        </span>
+                        This cannot be undone!
+                      </p>
+                      <button type="button" class="btn btn-outline-danger w-100 fw-bold fs-6 py-2">Deactivate This
+                        Account
+                      </button>
+                    </li>
+                  </ul>
+                </form>
+              </div>
+              <div class="modal-footer py-3">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<nav aria-label="Page navigation example">
+  <ul class="pagination ">
+    <li class="page-item">
+      <a class="page-icon page-link material-icons px-1" href="#" aria-label="Previous">
+        keyboard_arrow_left
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-icon page-link material-icons px-1" href="#" aria-label="Next">
+        keyboard_arrow_right
+      </a>
+    </li>
+  </ul>
+</nav>

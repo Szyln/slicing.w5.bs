@@ -1,0 +1,50 @@
+$custom-colors: (
+  "custom-color": #900,
+  "gray-400": $gray-400,
+);
+// 與 既有的 map Merge 起來 
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+$custom-font-sizes: (
+  // 1: $h1-font-size, // 40
+  // 2: $h2-font-size, // 32
+  // 3: $h3-font-size, // 28
+  // 4: $h4-font-size, // 24
+  // 5: $h5-font-size, // 20
+  // 6: $h6-font-size, // 16
+  small: $font-size-sm, // 14
+);
+
+$font-sizes: map-merge($font-sizes, $custom-font-sizes);
+
+$mini-spacer: 4px;
+// $spacer: 1rem !default;
+$custom-spacers: (
+  // 0: 0,             // 0
+  // 1: $spacer / 4,   // 4
+  // 2: $spacer / 2,   // 8
+  // 3: $spacer,       // 16
+  // 4: $spacer * 1.5, // 24
+  // 5: $spacer * 3,   // 48
+  x3: $mini-spacer * 3, // 12
+  x5: $mini-spacer * 5,  // 20
+  x8: $mini-spacer * 8,    // 32
+  x20: $mini-spacer * 20,    // 80
+  x16: $mini-spacer * 16,   // 64
+);
+
+$spacers: map-merge($spacers, $custom-spacers);
+
+
+$modal-inner-padding:               $spacer * 2;
+$modal-header-border-color:         0;
+$modal-footer-border-color:         0;
+
+$pagination-color:                  $dark;
+$pagination-border-color:           $primary;
+$pagination-hover-color:            $light;
+$pagination-hover-bg:               $primary;
+$pagination-hover-border-color:     $primary;
+$table-cell-padding-y:        1rem;
+
+
